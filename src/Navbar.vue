@@ -32,8 +32,13 @@
         <v-icon right>dashboard</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer app v-model="drawer" color="primary" width="256">
-      <p>Samuel</p>
+    <v-navigation-drawer dark app v-model="drawer" color="primary" width="256">
+      <v-list>
+        <v-list-item v-for="(link, i) in links" :key="i" router :to="link.url" class="green--text text-uppercase">
+          <v-icon left>{{ link.icon }}</v-icon>
+          <span class="ml-2">{{ link.name }}</span>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </div>
 </template>
@@ -43,18 +48,9 @@
     name: "Navbar",
     data() {
       return {
-        drawer: null
+        drawer: this.$store.state.drawer,
+        links: this.$store.state.links
       }
-    },
-    
-    computed: {
-            isComputer() {
-                return this.$vuetify.breakpoint.name !== 'xs';
-            },
-            
-            showDrawer() {
-                return this.isLarge || this.drawer
-            }
     }
   }
 </script>

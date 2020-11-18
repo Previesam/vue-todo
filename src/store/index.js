@@ -5,7 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    drawer: null
+    drawer: null,
+    links: [
+      { name: "Dashboard", icon: "dashboard", url: "/dashboard" },
+      { name: "My Todo", icon: "folder", url: "/my-todo" },
+      { name: "All Todo", icon: "assignment", url: "/todos" },
+      ]
   },
   mutations: {
   },
