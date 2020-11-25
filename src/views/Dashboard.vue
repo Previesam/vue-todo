@@ -1,44 +1,41 @@
 <template>
   <div class="dashboard ma-4">
-    <div class="title accent--text"
+    <div class="subheading accent--text"
       ><em>{{ this.$route.name }}</em></div
     >
-
     <v-container fluid>
-      <v-row>
-        <v-col>
+      <v-row wrap>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">All Todos</div>
             <div class="mt-7 display-2 primary--text">{{ todos.length }}</div>
           </v-card>
         </v-col>
-        <v-col>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Completed</div>
             <div class="mt-7 display-2 success--text">{{ completed.length }}</div>
           </v-card>
         </v-col>
-        <v-col>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Pending</div>
             <div class="mt-7 display-2 error--text">{{ pending.length }}</div>
           </v-card>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Cancelled</div>
             <div class="mt-7 display-2 warning--text">{{ cancelled.length }}</div>
           </v-card>
         </v-col>
-        <v-col>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Personal</div>
             <div class="mt-7 display-2 accent--text">{{ personal.length }}</div>
           </v-card>
         </v-col>
-        <v-col>
+        <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Work</div>
             <div class="mt-7 display-2 pink--text">{{ work.length }}</div>
@@ -47,8 +44,8 @@
       </v-row>
       <v-row>
         <v-col>
-          <v-card class="py-2">
-            <v-card-title>All Todos</v-card-title>
+          <v-card class="py-1">
+            <v-card-title class="subheading">All Todos</v-card-title>
             <!--<v-container>-->
             <!--  <v-row>-->
             <!--    <v-col> All Todos </v-col>-->
