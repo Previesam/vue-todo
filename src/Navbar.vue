@@ -1,12 +1,25 @@
 <template>
   <div>
     <v-app-bar app color="primary" dark dense>
+      <v-text-field
+        autofocus
+        @mouseout="searching = !searching"
+        v-if="searching"
+        outlined
+        prepend-inner-icon="search"
+        placeholder="Search"
+        dense="8"
+        class="mt-6 mr-4"
+        max-width="100%"
+        color="accent"
+      ></v-text-field>
       <v-app-bar-nav-icon
+        v-if="!searching"
         left
         color="grey--text"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <div class="d-flex align-center">
+      <div v-if="!searching" class="d-flex align-center">
         <!--<v-img-->
         <!--  alt="Vuetify Logo"-->
         <!--  class="shrink mr-2"-->
@@ -21,9 +34,18 @@
         </div>
       </div>
 
-      <v-spacer></v-spacer>
-      <v-col class="col-4">
+      <v-spacer v-if="!searching"></v-spacer>
+      <v-btn
+        v-if="!searching"
+        @click="searching = !searching"
+        class="hidden-md-and-up"
+        text
+        rounded
+        ><v-icon>search</v-icon></v-btn
+      >
+      <v-col v-if="!searching" class="col-4 hidden-sm-only hidden-xs-only">
         <v-text-field
+          autofocus
           outlined
           prepend-inner-icon="search"
           placeholder="Search"
@@ -33,8 +55,7 @@
           color="accent"
         ></v-text-field>
       </v-col>
-
-      <v-btn to="/about" text outlined>
+      <v-btn v-if="!searching" to="/about" text outlined>
         <span>Login</span>
         <v-icon right>dashboard</v-icon>
       </v-btn>
@@ -70,6 +91,7 @@ export default {
     return {
       drawer: this.$store.state.drawer,
       links: this.$store.state.links,
+      searching: null,
     };
   },
 };

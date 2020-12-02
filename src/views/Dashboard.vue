@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard ma-4">
-    <div class="subheading accent--text"
-      ><em>{{ this.$route.name }}</em></div
-    >
+    <div class="subheading accent--text">
+      <em>{{ this.$route.name }}</em>
+    </div>
     <v-container fluid>
       <v-row wrap>
         <v-col class="col-6 col-md-4">
@@ -14,7 +14,9 @@
         <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Completed</div>
-            <div class="mt-7 display-2 success--text">{{ completed.length }}</div>
+            <div class="mt-7 display-2 success--text">
+              {{ completed.length }}
+            </div>
           </v-card>
         </v-col>
         <v-col class="col-6 col-md-4">
@@ -26,7 +28,9 @@
         <v-col class="col-6 col-md-4">
           <v-card height="150px" class="py-2 text-center">
             <div class="grey--text subtitle">Cancelled</div>
-            <div class="mt-7 display-2 warning--text">{{ cancelled.length }}</div>
+            <div class="mt-7 display-2 warning--text">
+              {{ cancelled.length }}
+            </div>
           </v-card>
         </v-col>
         <v-col class="col-6 col-md-4">
@@ -46,100 +50,36 @@
         <v-col>
           <v-card class="py-1">
             <v-card-title class="subheading">All Todos</v-card-title>
-            <!--<v-container>-->
-            <!--  <v-row>-->
-            <!--    <v-col> All Todos </v-col>-->
-            <!--    <v-spacer></v-spacer>-->
-            <!--    <v-col-->
-            <!--      ><v-text-field-->
-            <!--        placeholder="Search"-->
-            <!--        append-icon="search"-->
-            <!--      ></v-text-field-->
-            <!--    ></v-col>-->
-            <!--  </v-row>-->
-            <!--  <v-row>-->
-            <!--    <v-col-->
-            <!--      ><v-card flat outlined class="overflow-x-hidden">-->
-            <!--        <v-row>-->
-            <!--          <v-col class="mx-2 subtitle"> Description </v-col>-->
-            <!--          <v-col class="mx-2 subtitle text-center"> Status </v-col>-->
-            <!--          <v-col class="mx-2 subtitle text-center"> User </v-col>-->
-            <!--          <v-col class="mx-2 mr-4 subtitle text-center">-->
-            <!--            Action-->
-            <!--          </v-col>-->
-            <!--        </v-row>-->
-            <!--        <v-divider></v-divider>-->
-            <!--        <div v-for="(todo, i) in todos" :key="i">-->
-            <!--          <v-row class="mb-2">-->
-            <!--            <v-col class="mx-2 mt-2 subtitle grey--text">-->
-            <!--              {{ todo.description }}-->
-            <!--            </v-col>-->
-            <!--            <v-col-->
-            <!--              class="mx-2 mt-2 subtitle grey--text text-center"-->
-            <!--            >-->
-            <!--              <v-chip color="primary">-->
-            <!--                {{ todo.status }}-->
-            <!--              </v-chip>-->
-            <!--            </v-col>-->
-            <!--            <v-col-->
-            <!--              class="mx-2 mt-2 subtitle grey--text text-center"-->
-            <!--            >-->
-            <!--              {{ todo.user }}-->
-            <!--            </v-col>-->
-            <!--            <v-col-->
-            <!--              class="mx-2 mr-4 mt-2 subtitle grey--text text-center"-->
-            <!--            >-->
-            <!--              <v-icon small class="mr-2">edit</v-icon>-->
-            <!--              <v-icon small>delete</v-icon>-->
-            <!--            </v-col>-->
-            <!--          </v-row>-->
-            <!--          <v-divider></v-divider>-->
-            <!--        </div> </v-card-->
-            <!--    ></v-col>-->
-            <!--  </v-row>-->
-            <!--</v-container>-->
-            <template>
-  <v-simple-table height="300px">
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Description
-          </th>
-          <th class="text-left">
-            Status
-          </th>
-          <th class="text-left">
-            User
-          </th>
-          <th class="text-center">
-            Actions
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(todo, i) in todos"
-          :key="i"
-        >
-          <td>{{ todo.description }}</td>
-          <td>
-            <v-chip color="accent">
-            {{ todo.status }}
-          </v-chip></td>
-          <td>{{ todo.user }}</td>
-          <td class="text-center">
-            <v-icon small left>edit</v-icon>
-            <v-icon small>delete</v-icon>
-          </td>
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
-</template>
-          </v-card>
-        </v-col>
-      </v-row>
+              <v-simple-table height="300px">
+                <template v-slot:default>
+                  <thead>
+                    <tr>
+                      <th class="text-left">Description</th>
+                      <th class="text-left">Status</th>
+                      <th class="text-left">User</th>
+                      <th class="text-center">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(todo, i) in todos" :key="i">
+                      <td>{{ todo.description }}</td>
+                      <td>
+                        <v-chip color="accent">
+                          {{ todo.status }}
+                        </v-chip>
+                      </td>
+                      <td>{{ todo.user }}</td>
+                      <td class="text-center">
+                        <v-icon small left>edit</v-icon>
+                        <v-icon small>delete</v-icon>
+                      </td>
+                    </tr>
+                  </tbody>
+                </template>
+              </v-simple-table>
+            </v-card
+          ></v-col>
+        </v-row>
     </v-container>
   </div>
 </template>
@@ -168,7 +108,8 @@ export default {
     this.todos.forEach((element) => {
       if (element.status == "completed") return this.completed.push(element);
       else if (element.status == "pending") return this.pending.push(element);
-      else if (element.status == "cancelled") return this.cancelled.push(element);
+      else if (element.status == "cancelled")
+        return this.cancelled.push(element);
       else if (element.type == "work") return this.work.push(element);
       else if (element.type == "personal") return this.personal.push(element);
     });
