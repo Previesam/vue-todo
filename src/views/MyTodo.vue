@@ -5,12 +5,14 @@
         <v-card-title> Add New </v-card-title>
         <v-card-content>
           <v-row class="justify-center px-5 py-5">
+            <v-form v-model="form">
             <v-col class="col-12 col-sm-12 col-md-6">
               <v-text-field
                 outlined
                 dense
                 prepend-icon="info"
                 label="Details"
+                name="description"
               ></v-text-field>
             </v-col>
             <v-spacer></v-spacer>
@@ -21,6 +23,7 @@
                 dense
                 type="date"
                 label="Due Date"
+                name="due_datd"
               ></v-text-field>
             </v-col>
             <v-col class="col-12 col-sm-12 col-md-6">
@@ -29,6 +32,7 @@
                 dense
                 prepend-icon="account_circle"
                 label="User"
+                name="user"
               ></v-text-field>
             </v-col>
             <v-spacer></v-spacer>
@@ -38,18 +42,19 @@
                 prepend-icon="list"
                 outlined
                 dense
-                v-model="todo"
                 type="select"
                 label="Type"
+                name="type"
               >
                 <v-option value="Samuel">Samuel</v-option>
               </v-select>
             </v-col>
+            </v-form>
           </v-row>
           <v-row class="px-10 pb-10"
             ><v-spacer></v-spacer>
             <v-btn class="mr-3" @click="addNewDialog = false" text outlined color="primary">Cancel</v-btn>
-            <v-btn outlined color="accent">Save</v-btn>
+            <v-btn @click="addNewTodo(form)" outlined color="accent">Save</v-btn>
           </v-row>
         </v-card-content>
       </v-card>
@@ -156,7 +161,14 @@ export default {
       todos: this.$store.state.todos,
       addNewDialog: null,
       selectItems: ['Personal', 'Work'],
-    };
+      form: this.$store.state.form,
+    }; 
   },
+  methods: {
+    addNewTodo: function (form) {
+      console.log(form);
+      alert(form.value.description)
+    }
+  }
 };
 </script>

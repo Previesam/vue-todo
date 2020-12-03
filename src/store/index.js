@@ -17,7 +17,8 @@ export default new Vuex.Store({
       { description: "Code up the homepage", user: "Samuel", status: "cancelled", type: "work" },
       { description: "Code up the todo page", user: "Osas", status: "completed", type: "personal" },
       { description: "Code up the login", user: "Ferdinand", status: "pending", type: "work" }
-    ]
+    ],
+    form: "",
   },
   mutations: {
   },
